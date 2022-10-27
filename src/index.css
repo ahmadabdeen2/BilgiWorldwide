@@ -1,3 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "MonumentExtendedRegular";
+  src: url("./fonts/MonumentExtended-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "MonumentExtendedBold";
+  src: url("./fonts/MonumentExtended-Ultrabold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "MonumentExtendedLight";
+  src: url("//db.onlinewebfonts.com/t/5a7f8e143dbda0b26952bc287ad05cc4.eot");
+  src: url("//db.onlinewebfonts.com/t/5a7f8e143dbda0b26952bc287ad05cc4.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/5a7f8e143dbda0b26952bc287ad05cc4.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/5a7f8e143dbda0b26952bc287ad05cc4.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/5a7f8e143dbda0b26952bc287ad05cc4.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/5a7f8e143dbda0b26952bc287ad05cc4.svg#Monument Extended Light")
+      format("svg");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +39,55 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.lin-grad{
+background: rgb(217,74,152);
+background: radial-gradient(circle, rgba(217,74,152,1) 0%, rgba(23,174,191,1) 36%, rgba(217,74,100,1) 100%);}
+
+
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes show-up {
+  0% {
+    opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.sidebar {
+  -webkit-animation: show-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: show-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.button-swal{
+  color: #fff;
+  background-color: #000;
+
+}
+.bg-pat{
+  background-color: #121418;
+background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2317aebf' fill-opacity='0.14'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
