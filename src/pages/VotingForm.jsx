@@ -1,18 +1,18 @@
 import React, {useState} from "react";
-import { useLocation } from "react-router-dom";
+
 import Select from "react-select";
 import { options } from "./countries";
 import {client } from '../sanityClient.js'
+import Swal from 'sweetalert2'
+import {useLocation} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 const VotingForm = () => {
-  const location = useLocation();
+  let location = useLocation();
   const [selectedOption, setSelectedOption] = useState(null);
   const [fullName, setFullName] = useState("");
-  const [studentId, setStudentId] = useState("");
+
+ const navigate = useNavigate();
   const vote = () => {
-    console.log("Voting");
-    console.log("Full Name: ", fullName);
-    console.log("Student ID: ", studentId);
-    console.log("Country: ", selectedOption.value);
     let voting_category = "";
     switch(location.pathname){
         case "/fashion":
@@ -37,8 +37,22 @@ const VotingForm = () => {
   
       client
         .create(ballot)
-        .then(res => alert(res))
-        .catch((err) => console.log(err));
+        .then(res => Swal.fire({
+          title: 'Success!',
+          text: 'Thank you for voting!',
+          icon: 'success',
+          confirmButtonText: 'Continue'
+        })).then(
+          setTimeout(() => {
+            navigate("/")
+          }, 2000), 
+          )
+        .catch(((err) => Swal.fire({
+          title: 'Error!',
+          text: 'Something went wrong. Please try again later.',
+          icon: 'error',
+          confirmButtonText: 'Continue'
+          })));
     };
 
 
