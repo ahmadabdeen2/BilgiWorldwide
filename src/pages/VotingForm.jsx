@@ -31,7 +31,7 @@ const VotingForm = () => {
     const ballot = {
         _type: voting_category,
         name: fullName,
-        studentid: studentId,
+       
         country: selectedOption.value,
       };
   
@@ -64,17 +64,7 @@ const VotingForm = () => {
  hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
                 />
               </div>
-              <div className="grid mt-2">
-                <label className="text-gray-200 font-poppins  sm:text-sm text-xs">
-                  Student ID
-                </label>
-                <input
-                onChange ={(e) => setStudentId(e.target.value)}
-                  type="text"
-                  className="group h-8 px-1 mt-1 rounded-md transition duration-300 
- hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100"
-                />
-              </div>
+            
               <div className="mt-2">
                 <label className="text-gray-200 font-poppins sm:text-sm text-xs mt-5">
                   Select your candidate
